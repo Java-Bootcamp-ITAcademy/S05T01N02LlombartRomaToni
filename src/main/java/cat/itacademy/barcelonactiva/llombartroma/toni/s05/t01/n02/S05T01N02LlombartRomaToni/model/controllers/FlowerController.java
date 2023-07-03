@@ -32,7 +32,7 @@ public class FlowerController {
             @ApiResponse(responseCode = "201", description = "Flower added successfully"),
             @ApiResponse(responseCode = "204", description = "No content")
     })
-    @PostMapping(UrlString.addUrl)
+    @PostMapping(UrlString.ADD_URL)
     public ResponseEntity<FlowerDTO> add( @RequestBody Flower flower) {
         try {
             Optional<FlowerDTO> optionalFlower = flowerService.add(flower);
@@ -54,7 +54,7 @@ public class FlowerController {
             @ApiResponse(responseCode = "201", description = "Flower updated successfully"),
             @ApiResponse(responseCode = "204", description = "No content")
     })
-    @PutMapping(UrlString.updateUrl)
+    @PutMapping(UrlString.UPDATE_URL)
     public ResponseEntity<FlowerDTO> update(@RequestBody Flower flower, @PathVariable int id) {
         try {
             Optional<FlowerDTO> optionalFlower = flowerService.update(flower, id);
@@ -76,7 +76,7 @@ public class FlowerController {
             @ApiResponse(responseCode = "201", description = "Flower deleted successfully"),
             @ApiResponse(responseCode = "204", description = "No content")
     })
-    @DeleteMapping(UrlString.deleteUrl)
+    @DeleteMapping(UrlString.DELETE_URL)
     public ResponseEntity<FlowerDTO> delete(@PathVariable int id) {
         try {
             Optional<FlowerDTO> optionalFlower = flowerService.delete(id);
@@ -94,7 +94,7 @@ public class FlowerController {
             summary = "Retrieve a flower",
             tags = { "Retrieving a single flower" }
     )
-    @GetMapping(UrlString.getOneUrl)
+    @GetMapping(UrlString.GET_ONE_URL)
     public ResponseEntity<FlowerDTO> getOne(@PathVariable int id) {
         Optional<FlowerDTO> optionalFlower = flowerService.getOne(id);
         try {
@@ -112,7 +112,7 @@ public class FlowerController {
             summary = "Get all flowers",
             tags = { "Retrieving all flowers" }
     )
-    @GetMapping(UrlString.getAllUrl)
+    @GetMapping(UrlString.GET_ALL_URL)
     public ResponseEntity<List<FlowerDTO>> getAll() {
         Optional<List<FlowerDTO>> optionalFlowers = flowerService.getAll();
         try {
@@ -128,10 +128,10 @@ public class FlowerController {
     /* This inner class contains all endpoints strings. Static access */
     @Component
     public static class UrlString {
-        public static final String addUrl = "/flower/add";
-        public static final String updateUrl = "/flower/update/{id}";
-        public static final String deleteUrl = "/flower/delete/{id}";
-        public static final String getOneUrl = "/flower/getOne/{id}";
-        public static final String getAllUrl = "/flower/getAll";
+        public static final String ADD_URL = "/flower/add";
+        public static final String UPDATE_URL = "/flower/update/{id}";
+        public static final String DELETE_URL = "/flower/delete/{id}";
+        public static final String GET_ONE_URL = "/flower/getone/{id}";
+        public static final String GET_ALL_URL = "/flower/getall";
     }
 }
