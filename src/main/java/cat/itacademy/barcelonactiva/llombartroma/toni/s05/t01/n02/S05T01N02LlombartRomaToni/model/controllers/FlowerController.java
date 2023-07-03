@@ -124,7 +124,7 @@ public class FlowerController {
     }
     /* This inner class contains all endpoints strings. Static access */
 
-    public static class UrlString {
+    private static class UrlString {
         public static final String ADD_URL = "/flower/add";
         public static final String UPDATE_URL = "/flower/update/{id}";
         public static final String DELETE_URL = "/flower/delete/{id}";
