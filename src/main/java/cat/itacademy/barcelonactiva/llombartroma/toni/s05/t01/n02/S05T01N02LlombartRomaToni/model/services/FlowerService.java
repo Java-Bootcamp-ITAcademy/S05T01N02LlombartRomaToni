@@ -6,7 +6,6 @@ import cat.itacademy.barcelonactiva.llombartroma.toni.s05.t01.n02.S05T01N02Llomb
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -57,7 +56,6 @@ public class FlowerService {
     /* Converts from FlowerDTO to Flower */
     private Flower fromFlowerDTOToFlower(FlowerDTO flowerDTO) {
         ModelMapper modelMapper = new ModelMapper();
-        Flower flower = modelMapper.map(flowerDTO, Flower.class);
-        return flower;
+        return modelMapper.map(flowerDTO, Flower.class);
     }
 }
